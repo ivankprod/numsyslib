@@ -1199,4 +1199,6 @@ string InitProcessor(string strValue, int iInNS, int iOutNS)
 		return strResult;
 
 	}*/
+
+	return strResult;
 }

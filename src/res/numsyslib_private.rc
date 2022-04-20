@@ -11,12 +11,12 @@ FILETYPE VFT_DLL
 		{
 			VALUE "CompanyName", "IvanK Production"
 			VALUE "FileVersion", "1.4.5.0"
-			VALUE "FileDescription", "Numeric System� Core Library"
+			VALUE "FileDescription", "Numeric System Core Library"
 			VALUE "InternalName", ""
-			VALUE "LegalCopyright", "� 2008 - 2022 IvanK Production"
-			VALUE "LegalTrademarks", "Numeric System�"
+			VALUE "LegalCopyright", "(c) 2008 - 2022 IvanK Production"
+			VALUE "LegalTrademarks", "Numeric System"
 			VALUE "OriginalFilename", "numsyslib.dll"
-			VALUE "ProductName", "Numeric System�"
+			VALUE "ProductName", "Numeric System"
 			VALUE "ProductVersion", "1.4.5.0"
 		}
 	}
