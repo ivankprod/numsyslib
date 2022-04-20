@@ -30,3 +30,6 @@
 # IDEs
 .vscode
 .DS_Store
+
+# Builds
+bin
