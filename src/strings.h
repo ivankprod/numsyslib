@@ -1,9 +1,4 @@
-
-/*
-  	Numeric System™ Library Strings Module
-  	
-  	© 2008-2016 IvanK Production
-*/
+// Numeric System Library Strings Module
 
 #ifndef _STRINGS_H_
 #define _STRINGS_H_
@@ -14,12 +9,12 @@ using std::string;
 
 const string NSL_VERSION = "1.4.5";
 
-const string NSL_ABT     = "About Numeric System™ Library";
-const string NSL_INF     = "Numeric System™ Library " + NSL_VERSION +
-                           "\nThe most powerful numeric systems instrument\n\n";
-const string NSL_CPR     = "© 2008 - 2016 IvanK Production";
+const string NSL_ABT = "About Numeric Systemï¿½ Library";
+const string NSL_INF = "Numeric Systemï¿½ Library " + NSL_VERSION + "\nThe most powerful numeric systems instrument\n\n";
+const string NSL_CPR = "ï¿½ 2008 - 2016 IvanK Production";
 
-enum {
+enum
+{
 	// Invalid value specified
 	ERROR_INVALID_VALUE = 1,
 	// More than one fractional divider
@@ -51,4 +46,3 @@ enum {
 };
 
 #endif
-
