@@ -3,11 +3,7 @@
 #ifndef NUMSYSLIB_API_H
 #define NUMSYSLIB_API_H
 
-#ifdef BUILDING_DLL
 #define NSL_API __declspec(dllexport)
-#else
-#define NSL_API __declspec(dllimport)
-#endif
 
 #include <windows.h>
 
