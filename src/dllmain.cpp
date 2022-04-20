@@ -1,6 +1,6 @@
 // Numeric System Library Main Module
 
-#include "numsyslib_api.h"
+#include "api/numsyslib_api.h"
 
 #include "strings.h"
 #include "utils.h"
