@@ -1,7 +1,7 @@
 // Numeric System Library Strings Module
 
-#ifndef _STRINGS_H_
-#define _STRINGS_H_
+#ifndef STRINGS_H
+#define STRINGS_H
 
 #include <string>
 
