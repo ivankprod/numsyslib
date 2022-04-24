@@ -1,14 +1,15 @@
 // Numeric System Library Processor
 
-#include "processor.h"
-
-#include "utils.h"
-#include "bdouble.h"
-#include "strings.h"
-
-#include <vector>
 #include <math.h>
+#include <vector>
 #include <sstream>
+#include <cstring>
+#include <string>
+
+#include "../include/bdouble.h"
+#include "../include/strings.h"
+#include "../include/utils.h"
+#include "../include/processor.h"
 
 #define DIG "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 

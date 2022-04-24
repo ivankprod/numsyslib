@@ -22,6 +22,9 @@
 *.a
 *.lib
 
+# Compiled windows resources
+*.res
+
 # Executables
 *.exe
 *.out

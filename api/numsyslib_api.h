@@ -3,13 +3,14 @@
 #ifndef NUMSYSLIB_API_H
 #define NUMSYSLIB_API_H
 
-#define NSL_API __declspec(dllexport)
-
-#include <windows.h>
+#ifdef BUILDING_DLL
+	#define NSL_API __declspec(dllexport)
+#else
+	#define NSL_API __declspec(dllimport)
+#endif
 
 extern "C"
 {
-	NSL_API void nslAboutLib(HWND hWndOwner = 0);
 	NSL_API char *nslGetLibVersion();
 
 	NSL_API int nslGetLastError();

@@ -1,12 +1,13 @@
 // Numeric System Library Utilities
 
-#include "utils.h"
-
 #include <sstream>
+#include <cstring>
+#include <string>
+
+#include "../include/utils.h"
 
 using std::istringstream;
 using std::ostringstream;
-
 using std::swap;
 
 string CStrToStr(char *lpsInput)

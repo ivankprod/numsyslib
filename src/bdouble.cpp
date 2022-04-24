@@ -1,9 +1,14 @@
 // Numeric System Library BigDouble Class
 
-#include "bdouble.h"
+#include <cstring>
+#include <string>
 
 #include <math.h>
 
+#include "../include/bdouble.h"
+#include "../include/utils.h"
+
+using std::string;
 using std::max;
 using std::min;
 

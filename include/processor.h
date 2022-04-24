@@ -3,8 +3,6 @@
 #ifndef PROCESSOR_H
 #define PROCESSOR_H
 
-#include <string>
-
 using std::string;
 
 int SetPrec(string strPrec, int iOldT);

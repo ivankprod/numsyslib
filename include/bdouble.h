@@ -3,9 +3,10 @@
 #ifndef BDOUBLE_H
 #define BDOUBLE_H
 
-#include "utils.h"
-
 #include <vector>
+
+using std::string;
+using std::vector;
 
 #define forp(i, a, b, c) for (i = (a); (c) > 0 ? i <= (b) : i >= (b); i += (c))
 #define forn(i, n) forp(i, 0, (n)-1, 1)
@@ -27,9 +28,6 @@
 		v[(i) + 1] += v[(i)] / 10;            \
 		v[(i)] %= 10;                         \
 	}
-
-using std::string;
-using std::vector;
 
 void SetSize(int);
 int GetSize();

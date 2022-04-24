@@ -3,9 +3,6 @@
 #ifndef UTILS_H
 #define UTILS_H
 
-#include <cstring>
-#include <string>
-
 using std::string;
 
 string CStrToStr(char *lpsInput);

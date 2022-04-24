@@ -9,10 +9,6 @@ using std::string;
 
 const string NSL_VERSION = "1.4.5";
 
-const string NSL_ABT = "About Numeric System Library";
-const string NSL_INF = "Numeric System Library " + NSL_VERSION + "\nThe most powerful numeric systems instrument\n\n";
-const string NSL_CPR = "(c) 2008 - 2016 IvanK Production";
-
 enum
 {
 	// Invalid value specified

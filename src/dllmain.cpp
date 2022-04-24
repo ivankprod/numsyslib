@@ -1,15 +1,12 @@
 // Numeric System Library Main Module
 
-#include "api/numsyslib_api.h"
+#include <windows.h>
 
-#include "strings.h"
-#include "utils.h"
-#include "processor.h"
+#include "../include/strings.h"
+#include "../include/utils.h"
+#include "../include/processor.h"
 
-NSL_API void nslAboutLib(HWND hWndOwner)
-{
-	MessageBoxA(hWndOwner, (NSL_INF + NSL_CPR).c_str(), NSL_ABT.c_str(), MB_ICONINFORMATION);
-}
+#include "../api/numsyslib_api.h"
 
 NSL_API char *nslGetLibVersion() { return StrToCStr(NSL_VERSION); }
 NSL_API int nslGetLastError() { return cpuGetLastError(); }
