@@ -731,7 +731,6 @@ string InitProcessor(string strValue, int iInNS, int iOutNS)
 	/// roman to roman
 	if ((iInNS == ROMAN_NUMSYS) && (iOutNS == ROMAN_NUMSYS))
 	{
-
 		if ((!bSigned) && (!bFloat))
 		{
 			unsigned short int ArabNum = RomanToArab(StrToCStr(strValue));
@@ -754,7 +753,6 @@ string InitProcessor(string strValue, int iInNS, int iOutNS)
 	/// roman to nega-positional
 	else if ((iInNS == ROMAN_NUMSYS) && (iOutNS <= NEGA_POSITIONAL_NUMSYS))
 	{
-
 		if ((!bSigned) && (!bFloat))
 		{
 			unsigned short int ArabNum = RomanToArab(StrToCStr(strValue));
@@ -779,7 +777,6 @@ string InitProcessor(string strValue, int iInNS, int iOutNS)
 	/// roman to positional
 	else if ((iInNS == ROMAN_NUMSYS) && (iOutNS >= POSITIONAL_NUMSYS))
 	{
-
 		if ((!bSigned) && (!bFloat))
 		{
 			unsigned short int ArabNum = RomanToArab(StrToCStr(strValue));
@@ -805,7 +802,6 @@ string InitProcessor(string strValue, int iInNS, int iOutNS)
 	/// roman to factorial
 	/*
 	else if ((iInNS == ROMAN_NUMSYS) && (iOutNS == FACTORIAL_NUMSYS)) {
-
 		if ((!bSigned) && (!bFloat)) {
 			unsigned short int ArabNum = RomanToArab(StrToCStr(strValue));
 
@@ -824,7 +820,6 @@ string InitProcessor(string strValue, int iInNS, int iOutNS)
 
 	/// roman to fibonacci
 	else if ((iInNS == ROMAN_NUMSYS) && (iOutNS == FIBONACCI_NUMSYS)) {
-
 		if ((!bSigned) && (!bFloat)) {
 			unsigned short int ArabNum = RomanToArab(StrToCStr(strValue));
 
@@ -843,7 +838,6 @@ string InitProcessor(string strValue, int iInNS, int iOutNS)
 	/// nega-positional to roman
 	else if ((iInNS <= NEGA_POSITIONAL_NUMSYS) && (iOutNS == ROMAN_NUMSYS))
 	{
-
 		if (bFloat)
 		{
 			cpuERR_CODE = ERROR_NEGA_FLOAT;
@@ -870,7 +864,6 @@ string InitProcessor(string strValue, int iInNS, int iOutNS)
 	/// nega-positional to nega-positional
 	else if ((iInNS <= NEGA_POSITIONAL_NUMSYS) && (iOutNS <= NEGA_POSITIONAL_NUMSYS))
 	{
-
 		if (bFloat)
 		{
 			cpuERR_CODE = ERROR_NEGA_FLOAT;
@@ -883,7 +876,6 @@ string InitProcessor(string strValue, int iInNS, int iOutNS)
 	/// nega-positional to positional
 	else if ((iInNS <= NEGA_POSITIONAL_NUMSYS) && (iOutNS >= POSITIONAL_NUMSYS))
 	{
-
 		if (bFloat)
 		{
 			cpuERR_CODE = ERROR_NEGA_FLOAT;
@@ -913,7 +905,6 @@ string InitProcessor(string strValue, int iInNS, int iOutNS)
 	/*
 	/// nega-positional to factorial
 	else if ((iInNS <= NEGA_POSITIONAL_NUMSYS) && (iOutNS == FACTORIAL_NUMSYS)) {
-
 		if (bFloat) { cpuERR_CODE = ERROR_NEGA_FLOAT; return "+"; } /// fix later
 
 		/// code here
@@ -922,7 +913,6 @@ string InitProcessor(string strValue, int iInNS, int iOutNS)
 
 	/// nega-positional to fibonacci
 	else if ((iInNS <= NEGA_POSITIONAL_NUMSYS) && (iOutNS == FIBONACCI_NUMSYS)) {
-
 		if (bFloat) { cpuERR_CODE = ERROR_NEGA_FLOAT; return "+"; } /// fix later
 
 		bool bSignedOut = false;
@@ -947,7 +937,6 @@ string InitProcessor(string strValue, int iInNS, int iOutNS)
 	/// positional to roman
 	else if ((iInNS >= POSITIONAL_NUMSYS) && (iOutNS == ROMAN_NUMSYS))
 	{
-
 		if ((!bSigned) && (!bFloat))
 		{
 			Processor nslCPU(strValue, iInNS);
@@ -975,7 +964,6 @@ string InitProcessor(string strValue, int iInNS, int iOutNS)
 	/// positional to nega-positional
 	else if ((iInNS >= POSITIONAL_NUMSYS) && (iOutNS <= NEGA_POSITIONAL_NUMSYS))
 	{
-
 		if (bFloat)
 		{
 			cpuERR_CODE = ERROR_NEGA_FLOAT;
@@ -994,7 +982,6 @@ string InitProcessor(string strValue, int iInNS, int iOutNS)
 	/// positional to positional
 	else if ((iInNS >= POSITIONAL_NUMSYS) && (iOutNS >= POSITIONAL_NUMSYS))
 	{
-
 		if (!bFloat)
 		{
 			Processor nslCPU(strValue, iInNS);
