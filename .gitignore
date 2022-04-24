@@ -35,4 +35,5 @@
 .DS_Store
 
 # Builds
-bin
+/bin
+/build

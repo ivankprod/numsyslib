@@ -1,0 +1,29 @@
+cmake_minimum_required(VERSION 3.23)
+
+project(numsyslib)
+
+set(LIBRARY_VERSION "1.5.0")
+
+set(LIBRARY_SRC_PATH "${PROJECT_SOURCE_DIR}/src" )
+set(LIBRARY_INCLUDE_PATH "${PROJECT_SOURCE_DIR}/include")
+set(LIBRARY_API_PATH "${PROJECT_SOURCE_DIR}/api")
+
+include_directories(${LIBRARY_INCLUDE_PATH} ${LIBRARY_API_PATH})
+
+file(GLOB LIB_HEADER_FILES "${LIBRARY_INCLUDE_PATH}/*.h")
+file(GLOB LIB_API_FILES "${LIBRARY_API_PATH}/*.h")
+file(GLOB LIB_SOURCE_FILES "${LIBRARY_SRC_PATH}/*.cpp")
+
+if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+	set(FILENAME_SUFFIX "-win")
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+	set(FILENAME_SUFFIX "-linux")
+endif()
+
+set(LIBRARY_OUTPUT_PATH "../bin")
+
+add_definitions(-DBUILDING_DLL=1)
+add_library(${PROJECT_NAME} SHARED ${LIB_SOURCE_FILES})
+
+set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "")
+set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "numsyslib-${LIBRARY_VERSION}${FILENAME_SUFFIX}")
