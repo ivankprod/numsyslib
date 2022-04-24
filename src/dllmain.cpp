@@ -2,11 +2,11 @@
 
 #include <windows.h>
 
-#include "../include/strings.h"
-#include "../include/utils.h"
-#include "../include/processor.h"
+#include "strings.h"
+#include "utils.h"
+#include "processor.h"
 
-#include "../api/numsyslib_api.h"
+#include "numsyslib_api.h"
 
 NSL_API char *nslGetLibVersion() { return StrToCStr(NSL_VERSION); }
 NSL_API int nslGetLastError() { return cpuGetLastError(); }

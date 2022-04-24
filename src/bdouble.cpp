@@ -5,8 +5,8 @@
 
 #include <math.h>
 
-#include "../include/bdouble.h"
-#include "../include/utils.h"
+#include "bdouble.h"
+#include "utils.h"
 
 using std::string;
 using std::max;

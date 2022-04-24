@@ -4,7 +4,7 @@
 #include <cstring>
 #include <string>
 
-#include "../include/utils.h"
+#include "utils.h"
 
 using std::istringstream;
 using std::ostringstream;

@@ -6,10 +6,10 @@
 #include <cstring>
 #include <string>
 
-#include "../include/bdouble.h"
-#include "../include/strings.h"
-#include "../include/utils.h"
-#include "../include/processor.h"
+#include "bdouble.h"
+#include "strings.h"
+#include "utils.h"
+#include "processor.h"
 
 #define DIG "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
