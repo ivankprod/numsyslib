@@ -1,5 +1,5 @@
 # numsyslib
-Numeric System core library
+[![CodeFactor](https://www.codefactor.io/repository/github/ivankprod/numsyslib/badge)](https://www.codefactor.io/repository/github/ivankprod/numsyslib)
 
 1. Setup
 ```shell
