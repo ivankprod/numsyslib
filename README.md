@@ -1,18 +1,17 @@
 # numsyslib
 Numeric System core library
 
-# Setup
 1. Setup
-Generate cmake configuration (debug by default):
 ```shell
+# Generate cmake configuration (debug by default):
 cmake -S . -B build
 ```
 
 2. Build
-Library builds to ./bin directory 
 ```shell
+# Library builds to ./bin directory
 cmake --build build
 ```
 
-3. Test
+3. Test  
 In progress...
