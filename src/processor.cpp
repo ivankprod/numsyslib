@@ -321,6 +321,14 @@ bool dcless(char c, int ns)
 
 bool dcless_for(string s, int ns)
 {
+	ns = (ns < -1 ? -ns : (ns == 1 ? 2 : ns));
+
+	if (ns > 36 || ns < 2)
+	{
+		cpuERR_CODE = ERROR_INVALID_NS;
+		return false;
+	}
+
 	for (int i = 0; i < s.length(); i++)
 	{
 		if ((!dcless(s[i], ns)) && (s[i] != '.'))
@@ -394,10 +402,9 @@ bool CheckValid(string &strValue, int iNS)
 
 	strValue += (strValue[strValue.length() - 1] == '.' ? "0" : "");
 
-	int iFCount = 0;
 	int iStrLen = strValue.length();
+	int iFCount = std::count(strValue.begin(), strValue.end(), '.');
 
-	iFCount = std::count(strValue.begin(), strValue.end(), '.');
 	if (iFCount > 1)
 	{
 		cpuERR_CODE = ERROR_MORE_FLOAT;
@@ -430,22 +437,13 @@ bool CheckValid(string &strValue, int iNS)
 
 	default:
 	{
-		iNS = (iNS < -1 ? -iNS : (iNS == 1 ? 2 : iNS));
-
-		if (iNS > 36)
-		{
-			cpuERR_CODE = ERROR_INVALID_NS;
-			return false;
-		}
-
 		return dcless_for(strValue, iNS);
 
 		break;
 	}
 	}
 
-	cpuERR_CODE = 0;
-	return true;
+	return cpuResetErrors();
 }
 
 char *ArabToRoman(unsigned short int arab)
