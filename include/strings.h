@@ -15,32 +15,28 @@ enum
 	ERROR_INVALID_VALUE = 1,
 	// More than one fractional divider
 	ERROR_MORE_FLOAT = 2,
-	// The fractional part expected
-	ERROR_WAITING_FLOAT = 3,
 	// Invalid precision specified
-	ERROR_WRONG_PREC = 4,
+	ERROR_WRONG_PREC = 3,
 	// Division by zero
-	ERROR_DIVIDE_BY_ZERO = 5,
+	ERROR_DIVIDE_BY_ZERO = 4,
 	// Invalid numeral system specified
-	ERROR_INVALID_NS = 6,
+	ERROR_INVALID_NS = 5,
 	// Negative and float numbers aren't exist in roman ns
-	ERROR_ROMAN_SF = 7,
+	ERROR_ROMAN_SF = 6,
 	// Out of range in roman ns
-	ERROR_ROMAN_OUTOFRANGE = 8,
+	ERROR_ROMAN_OUTOFRANGE = 7,
 	// Negative numbers aren't exist in nega-pos ns
-	ERROR_NEGA_NEGA = 9,
+	ERROR_NEGA_NEGA = 8,
 	// Value expected
-	ERROR_VALUE_EXPEC = 10,
+	ERROR_VALUE_EXPEC = 9,
 	// Fibonacci out of range table
-	ERROR_FIB_OUTOFRANGE = 11,
+	ERROR_FIB_OUTOFRANGE = 10,
 	// Float numbers aren't supported in nega-pos ns
-	ERROR_NEGA_FLOAT = 12,
+	ERROR_NEGA_FLOAT = 11,
 	// Float numbers aren't exist in factorial ns
-	ERROR_FACT_FLOAT = 13,
+	ERROR_FACT_FLOAT = 12,
 	// Float numbers aren't exist in fibonacci ns
-	ERROR_FIB_FLOAT = 14,
-	// Invalid fractional divider symbol
-	ERROR_WRONG_FLOAT_SYMBOL = 15
+	ERROR_FIB_FLOAT = 13
 };
 
 #endif

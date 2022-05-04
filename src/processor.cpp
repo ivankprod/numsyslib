@@ -34,11 +34,12 @@ int cpuERR_CODE = 0;
 int iMainPrec = 4;
 const int iFibCount = 65;
 
-bool dcless(char, int);
+bool dcless(char c, int ns);
+bool dcless_for(string s, int ns);
 
 string RoundZ(string strNumber);
 
-bool CheckValid(string strValue, int iNS);
+bool CheckValid(string &strValue, int iNS);
 bool CheckValidPrec(string strPrecVal);
 
 string bfConvertFromDec(bdouble, int, int);
@@ -387,24 +388,14 @@ bool CheckValidPrec(string strPrecVal)
 	return true;
 }
 
-bool CheckValid(string strValue, int iNS)
+bool CheckValid(string &strValue, int iNS)
 {
-	int iFCount = 0;
-	int iStrLen = strValue.length();
-
 	cpuERR_CODE = ERROR_INVALID_VALUE;
 
-	if (strValue[iStrLen - 1] == '.')
-	{
-		cpuERR_CODE = ERROR_WAITING_FLOAT;
-		return false;
-	}
+	strValue += (strValue[strValue.length() - 1] == '.' ? "0" : "");
 
-	if (std::count(strValue.begin(), strValue.end(), ',') > 0)
-	{
-		cpuERR_CODE = ERROR_WRONG_FLOAT_SYMBOL;
-		return false;
-	}
+	int iFCount = 0;
+	int iStrLen = strValue.length();
 
 	iFCount = std::count(strValue.begin(), strValue.end(), '.');
 	if (iFCount > 1)
@@ -415,11 +406,6 @@ bool CheckValid(string strValue, int iNS)
 
 	switch (iNS)
 	{
-		/* case FACTORIAL_NUMSYS:
-		{
-			break;
-		} */
-
 	case ROMAN_NUMSYS:
 	{
 		if (iFCount > 0)
