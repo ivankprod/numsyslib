@@ -318,49 +318,41 @@ bool dcless(char c, int ns)
 		return false;
 }
 
-string RoundZ(string strNumber)
+bool dcless_for(string s, int ns)
 {
-	string RESULT = strNumber;
-
-	for (int rz = strNumber.length() - 1; rz >= 0; rz--)
+	for (int i = 0; i < s.length(); i++)
 	{
-		if (RESULT[rz] == '0')
-			RESULT.erase(rz, 1);
-		else
+		if ((!dcless(s[i], ns)) && (s[i] != '.'))
 		{
-			if (RESULT[RESULT.length() - 1] == '.')
-				RESULT.erase(RESULT.length() - 1, 1);
-			return RESULT;
+			cpuERR_CODE = ERROR_INVALID_VALUE;
+			return false;
 		}
 	}
 
-	if (RESULT[RESULT.length() - 1] == '.')
-		RESULT.erase(RESULT.length() - 1, 1);
-
-	return RESULT;
+	return true;
 }
 
-/*
-uint64 StrToNum_S(const string &str) {
-	string strt = str;
+string RoundZ(string strNumber)
+{
+	string strResult = strNumber;
 
-	for (int i = 0; i < strt.length(); i++) {
-		 if ((strt[i] != '0') && (strt[i] != '1') && (strt[i] != '2') && (strt[i] != '3') &&
-			 (strt[i] != '4') && (strt[i] != '5') && (strt[i] != '6') && (strt[i] != '7') &&
-			 (strt[i] != '8') && (strt[i] != '9'))    strt.erase(i);
+	for (int rz = strNumber.length() - 1; rz >= 0; rz--)
+	{
+		if (strResult[rz] == '0')
+			strResult.erase(rz, 1);
+		else
+		{
+			if (strResult[strResult.length() - 1] == '.')
+				strResult.erase(strResult.length() - 1, 1);
+			return strResult;
+		}
 	}
 
-	if ((cmp(bdouble (strt), bdouble (MAX_UINT64)) == 1) || (cmp(bdouble (strt), bdouble (MAX_UINT64)) == 0)) {
-		return -1;
-	}
+	if (strResult[strResult.length() - 1] == '.')
+		strResult.erase(strResult.length() - 1, 1);
 
-	istringstream iss (strt);
-	uint64 Res;
-	iss >> Res;
-
-	return Res;
+	return strResult;
 }
-*/
 
 bool CheckValidPrec(string strPrecVal)
 {
@@ -414,7 +406,8 @@ bool CheckValid(string strValue, int iNS)
 		return false;
 	}
 
-	if (std::count(strValue.begin(), strValue.end(), '.') > 1)
+	iFCount = std::count(strValue.begin(), strValue.end(), '.');
+	if (iFCount > 1)
 	{
 		cpuERR_CODE = ERROR_MORE_FLOAT;
 		return false;
@@ -422,74 +415,44 @@ bool CheckValid(string strValue, int iNS)
 
 	switch (iNS)
 	{
-	case FACTORIAL_NUMSYS:
-	{
-		break;
-	}
+		/* case FACTORIAL_NUMSYS:
+		{
+			break;
+		} */
 
 	case ROMAN_NUMSYS:
 	{
-		int M, D, C, L, X, V, I;
-		M = D = C = L = X = V = I = 0;
-
-		for (int i = 0; i < strValue.length(); i++)
+		if (iFCount > 0)
 		{
-			if (strValue[i] != 'M' &&
-				strValue[i] != 'D' &&
-				strValue[i] != 'C' &&
-				strValue[i] != 'L' &&
-				strValue[i] != 'X' &&
-				strValue[i] != 'V' &&
-				strValue[i] != 'I')
-				return false;
-
-			switch (strValue[i])
-			{
-			case 'M':
-				M++;
-				break;
-			case 'D':
-				D++;
-				break;
-			case 'C':
-				C++;
-				break;
-			case 'L':
-				L++;
-				break;
-			case 'X':
-				X++;
-				break;
-			case 'V':
-				V++;
-				break;
-			case 'I':
-				I++;
-				break;
-			}
-
-			if ((M > 3) || (D > 3) || (C > 3) || (L > 3) || (X > 3) || (V > 3) || (I > 3))
-				return false;
+			cpuERR_CODE = ERROR_ROMAN_SF;
+			return false;
 		}
+
+		int M = std::count(strValue.begin(), strValue.end(), 'M');
+		int D = std::count(strValue.begin(), strValue.end(), 'D');
+		int C = std::count(strValue.begin(), strValue.end(), 'C');
+		int L = std::count(strValue.begin(), strValue.end(), 'L');
+		int X = std::count(strValue.begin(), strValue.end(), 'X');
+		int V = std::count(strValue.begin(), strValue.end(), 'V');
+		int I = std::count(strValue.begin(), strValue.end(), 'I');
+
+		if (!(M || D || C || L || X || V || I))
+			return false;
 
 		break;
 	}
 
 	default:
 	{
-		if (iNS < -1)
-			iNS = -iNS;
-		else if (iNS == 1)
-			iNS = 2;
+		iNS = (iNS < -1 ? -iNS : (iNS == 1 ? 2 : iNS));
 
-		if (iNS <= 36)
+		if (iNS > 36)
 		{
-			for (int i = 0; i < iStrLen; i++)
-			{
-				if ((!dcless(strValue[i], iNS)) && ((strValue[i] != '.') && (strValue[i] != ',')))
-					return false;
-			}
+			cpuERR_CODE = ERROR_INVALID_NS;
+			return false;
 		}
+
+		return dcless_for(strValue, iNS);
 
 		break;
 	}
