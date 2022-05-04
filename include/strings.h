@@ -7,7 +7,7 @@
 
 using std::string;
 
-const string NSL_VERSION = "1.4.5";
+const string NSL_VERSION = "1.5.0";
 
 enum
 {
@@ -38,7 +38,9 @@ enum
 	// Float numbers aren't exist in factorial ns
 	ERROR_FACT_FLOAT = 13,
 	// Float numbers aren't exist in fibonacci ns
-	ERROR_FIB_FLOAT = 14
+	ERROR_FIB_FLOAT = 14,
+	// Invalid fractional divider symbol
+	ERROR_WRONG_FLOAT_SYMBOL = 15
 };
 
 #endif

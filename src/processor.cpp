@@ -1,5 +1,6 @@
 // Numeric System Library Processor
 
+#include <algorithm>
 #include <math.h>
 #include <vector>
 #include <sstream>
@@ -401,19 +402,19 @@ bool CheckValid(string strValue, int iNS)
 
 	cpuERR_CODE = ERROR_INVALID_VALUE;
 
-	if ((strValue[iStrLen - 1] == '.') || (strValue[iStrLen - 1] == ','))
+	if (strValue[iStrLen - 1] == '.')
 	{
 		cpuERR_CODE = ERROR_WAITING_FLOAT;
 		return false;
 	}
 
-	for (int cv = 0; cv < iStrLen; cv++)
+	if (std::count(strValue.begin(), strValue.end(), ',') > 0)
 	{
-		if ((strValue[cv] == '.') || (strValue[cv] == ','))
-			iFCount++;
+		cpuERR_CODE = ERROR_WRONG_FLOAT_SYMBOL;
+		return false;
 	}
 
-	if (iFCount > 1)
+	if (std::count(strValue.begin(), strValue.end(), '.') > 1)
 	{
 		cpuERR_CODE = ERROR_MORE_FLOAT;
 		return false;
@@ -423,15 +424,11 @@ bool CheckValid(string strValue, int iNS)
 	{
 	case FACTORIAL_NUMSYS:
 	{
-		/// fact numeric system
-
 		break;
 	}
 
 	case ROMAN_NUMSYS:
 	{
-		/// roman numeric system
-
 		int M, D, C, L, X, V, I;
 		M = D = C = L = X = V = I = 0;
 
@@ -446,20 +443,30 @@ bool CheckValid(string strValue, int iNS)
 				strValue[i] != 'I')
 				return false;
 
-			if (strValue[i] == 'M')
+			switch (strValue[i])
+			{
+			case 'M':
 				M++;
-			if (strValue[i] == 'D')
+				break;
+			case 'D':
 				D++;
-			if (strValue[i] == 'C')
+				break;
+			case 'C':
 				C++;
-			if (strValue[i] == 'L')
+				break;
+			case 'L':
 				L++;
-			if (strValue[i] == 'X')
+				break;
+			case 'X':
 				X++;
-			if (strValue[i] == 'V')
+				break;
+			case 'V':
 				V++;
-			if (strValue[i] == 'I')
+				break;
+			case 'I':
 				I++;
+				break;
+			}
 
 			if ((M > 3) || (D > 3) || (C > 3) || (L > 3) || (X > 3) || (V > 3) || (I > 3))
 				return false;
@@ -470,8 +477,6 @@ bool CheckValid(string strValue, int iNS)
 
 	default:
 	{
-		/// all another numeric systems
-
 		if (iNS < -1)
 			iNS = -iNS;
 		else if (iNS == 1)
@@ -481,8 +486,7 @@ bool CheckValid(string strValue, int iNS)
 		{
 			for (int i = 0; i < iStrLen; i++)
 			{
-				if ((!dcless(strValue[i], iNS)) &&
-					((strValue[i] != '.') && (strValue[i] != ',')))
+				if ((!dcless(strValue[i], iNS)) && ((strValue[i] != '.') && (strValue[i] != ',')))
 					return false;
 			}
 		}
@@ -556,6 +560,7 @@ unsigned short int RomanToArab(char *roman)
 	while (n >= 0 && i < len)
 	{
 		pir = n & 1;
+
 		if (roman[i] == romanar[n][0] && (!pir || roman[i + 1] == romanar[n][1]))
 		{
 			arab += arabar[n];
